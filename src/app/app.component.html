@@ -1,8 +1,11 @@
 <h1>
     {{title}}
 </h1>
-
+<div>
+    environment={{environment | json}}
+</div>
 <nav>
+    <a routerLink="/" routerLinkActive="active">/</a>
     <a routerLink="/home" routerLinkActive="active">Home</a>
     <a routerLink="/inset" routerLinkActive="active">Inset</a>
     <a routerLink="/blah" routerLinkActive="active">Blah</a>
@@ -10,13 +13,9 @@
     <a routerLink="/about" routerLinkActive="active">About</a>
     <a routerLink="/contact" routerLinkActive="active">Contact</a>
     <a routerLink="/members" routerLinkActive="active">Members</a>
-    <a routerLink="/member" routerLinkActive="active">Member</a>
-    <a routerLink="/projects" routerLinkActive="active">Projects</a>
-    <a routerLink="/" routerLinkActive="active">/</a>
+    <a routerLink="/member/1" routerLinkActive="active">Member/1</a>
     <a routerLink="/404" routerLinkActive="active">404</a>
     <a routerLink="/pageNotFound" routerLinkActive="active">pageNotFound</a>
-    <a routerLink="/invalid1" routerLinkActive="active">invalid1</a>
-    <a routerLink="/invalid2" routerLinkActive="active">invalid2</a>
 </nav>
 <!--
     <nav>
@@ -25,14 +24,11 @@
     <a routerLink="/contact" routerLinkActive="active">Contact</a>
     <a routerLink="/members" routerLinkActive="active">Members</a>
     <a routerLink="/member" routerLinkActive="active">Member</a>
-    <a routerLink="/projects" routerLinkActive="active">Projects</a>
     <a routerLink="/inset" routerLinkActive="active">Inset</a>
     <a routerLink="/blah" routerLinkActive="active">Blah</a>
     <a routerLink="/" routerLinkActive="active">/</a>
     <a routerLink="/404" routerLinkActive="active">404</a>
     <a routerLink="/pageNotFound" routerLinkActive="active">pageNotFound</a>
-    <a routerLink="/invalid1" routerLinkActive="active">invalid1</a>
-    <a routerLink="/invalid2" routerLinkActive="active">invalid2</a>
 </nav>
 -->
 <router-outlet></router-outlet>

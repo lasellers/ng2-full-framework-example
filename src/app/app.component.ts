@@ -6,11 +6,13 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 // import { Subscription } from 'rxjs/Subscription';
 
-import { ReadOnlyDataService } from './read-only-data.service';
+import { ReadOnlyDataService } from './services/read-only-data.service';
 
-import { InsetComponent } from './inset/inset.component';
+import { InsetComponent } from './components/inset/inset.component';
 //import { AppRoutingModule} from './app.routing-module';
-import { ErrorHandlingService } from './error-handling.service';
+import { ErrorHandlingService } from './services/error-handling.service';
+
+import { environment } from '../environments/environment';
 
 console.clear();
 
@@ -20,7 +22,8 @@ console.clear();
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'NG2 Router and Structural Example.';
+  title = 'NG2 Full Framework Example.';
+  environment = environment;
 
   users: Array<Object> = [];
 
@@ -95,6 +98,5 @@ export class AppComponent implements OnInit {
   visitAngularIo() {
     location.href = 'https://angular.io';
   }
-
 
 }
