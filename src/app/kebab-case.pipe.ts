@@ -9,7 +9,7 @@ export class KebabCasePipe implements PipeTransform {
     if (!value) { return value; }
 
     return value.replace(/[^0-9a-zA-Z ]/g, '').replace(/\w\S*/g, function (word, index) {
-      console.log(`camelcase: word=${word} index=${index}`);
+      // console.log(`camelcase: word=${word} index=${index}`);
       return word.toLowerCase();
     }).replace(/ /g, '-');
 

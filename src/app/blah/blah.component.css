@@ -1,0 +1,8 @@
+app-blah,
+.app-blah {
+    background-color: red;
+    margin: 0;
+    padding: 1em 2em;
+    display: block;
+    font-size: .9em;
+}

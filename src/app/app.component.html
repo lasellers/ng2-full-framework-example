@@ -2,6 +2,7 @@
     {{title}}
 </h1>
 
+
 <h2>Pipes</h2>
 <ul>
     <li>unfiltered = {{ title}}</li>
@@ -21,7 +22,7 @@
 <h3>Attribute Directives</h3>
 <ul>
     <li redline>redline</li>
-    <li highline>highline</li>
+    <li highline>highline (mouseover)</li>
     <li>confirm-model
         <button type="button" (click)="visitAngularIo()" confirm-modal>Visit angular.io</button>
     </li>
@@ -45,10 +46,17 @@
     </li>
 </ul>
 
-<h2>Components</h2>
 
 
-<h2>Other</h2>
+
+<h3>Other</h3>
+<div>
+    Users count={{users.length}}
+</div>
+<div *ngIf="users.length>0">
+    Many users.
+</div>
+<pre>{{users |json }}</pre>
 <ul>
     <li>ngfor
         <ul>
@@ -65,3 +73,19 @@
         </ul>
     </li>
 </ul>
+
+
+
+<h2>Components</h2>
+<div>
+    title = {{title}}
+</div>
+
+<div class="row">
+    <div class="col-sm-8">
+        <app-inset class="app-inset"></app-inset>
+    </div>
+    <div class="col-sm-4">
+        <app-blah class="app-blah"></app-blah>
+    </div>
+</div>

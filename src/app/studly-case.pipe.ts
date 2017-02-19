@@ -12,7 +12,7 @@ export class StudlyCasePipe implements PipeTransform {
     if (typeof args === 'string') {
       if (args.localeCompare('random') === 0) {
         return value.replace(/[^0-9a-zA-Z ]/g, '').split('').map(function (char, index) {
-          console.log(`studlycase random: char=${char} index=${index}`);
+          // console.log(`studlycase random: char=${char} index=${index}`);
           if (Math.random() > 0.5) {
             return char.toLowerCase();
           } else {
@@ -24,7 +24,7 @@ export class StudlyCasePipe implements PipeTransform {
 
     //
     return value.replace(/[^0-9a-zA-Z ]/g, '').split('').map(function (char, index) {
-      console.log(`studlycase: char=${char} index=${index}`);
+      // console.log(`studlycase: char=${char} index=${index}`);
       if (index % 2 === 1) {
         return char.toLowerCase();
       } else {

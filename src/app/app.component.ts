@@ -1,9 +1,15 @@
-import { Component, Input, OnInit, OnChanges, OnDestroy } from '@angular/core';
-//import { } from './data.json';
+import { ErrorHandlingService } from './error-handling.service';
+import { Component, Input } from '@angular/core';
+import { OnInit, OnChanges, OnDestroy } from '@angular/core';
+import { AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked } from '@angular/core';
 
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 // import { Subscription } from 'rxjs/Subscription';
+
+import { ReadOnlyDataService } from './read-only-data.service';
+
+import { InsetComponent } from './inset/inset.component';
 
 console.clear();
 
@@ -18,24 +24,44 @@ export class AppComponent implements OnInit {
   users: Array<Object> = [];
 
   constructor(
-    private http: Http
-    //, public toasterService: ToasterService
+    private http: Http,
+    private errorhandling: ErrorHandlingService,
+    private ro: ReadOnlyDataService,
+    private inset: InsetComponent
   ) { }
 
   ngOnInit() {
     console.log('app.component OnInit');
-    const obj = this.http.get('./data.json')
-      .map((res: Response) => res.json())
-      .subscribe(
-      users => {
-        this.users = Array.from(users);
-        console.log(this.users);
-      },
-      error => {
-        this.emitErrorMessage(error);
-      },
-      () => console.log('data.json finished')
-      );
+
+    // this.users =
+    let that = this;
+    this.ro.getUsers(function (users) {
+      console.log("users=");
+      console.log(users);
+
+      console.log("that.users=");
+      console.log(that.users);
+
+      that.users = users;
+
+    });
+    console.log("this.users=");
+    console.log(this.users);
+
+    /*
+        const obj = this.http.get('./data.json')
+          .map((res: Response) => res.json())
+          .subscribe(
+          users => {
+            this.users = Array.from(users);
+            console.log(this.users);
+          },
+          error => {
+            this.errorhandling.handleError(error);
+          },
+          () => console.log('data.json finished')
+          );
+          */
   }
 
   ngOnChanges() {
@@ -46,16 +72,26 @@ export class AppComponent implements OnInit {
     console.log('app.component ngOnDestroy');
   }
 
+  ngAfterContentInit() {
+    console.log('app.component AfterContentInit');
+  }
+
+  ngAfterContentChecked() {
+    console.log('app.component AfterContentChecked');
+  }
+
+  ngAfterViewInit() {
+    console.log('app.component AfterViewInit');
+  }
+
+  ngAfterViewChecked() {
+    console.log('app.component AfterViewChecked');
+  }
+
+
   visitAngularIo() {
     location.href = 'https://angular.io';
   }
 
-  emitErrorMessage(error): void {
-    // debugger;
-    const text: string = error.statusText || 'Internet Error';
-    console.error(`Error: (${error.status}) ${text}`);
-    const message: string = `Error: (${error.status}) ${text}`;
-    //  this.toasterService.pop('error', `Error: ${error.status}`, text);
-  }
 
 }

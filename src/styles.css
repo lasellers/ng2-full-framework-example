@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import './app/inset/inset.component.css';
+@import './app/blah/blah.component.css';
+@import './app/about/about.component.css';
+@import './app/contact/contact.component.css';
+@import './app/home/home.component.css';
+@import './app/member/member.component.css';
+@import './app/members/members.component.css';
+@import './app/projects/projects.component.css';

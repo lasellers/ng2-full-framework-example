@@ -14,7 +14,7 @@ export class RepeatNDirective {
 
   @Input() set repeatN(count: number) {
 
-    console.log(this._templateRef);
+    // console.log(this._templateRef);
     if (Number.isInteger(count)) {
       for (let i = 0; i < count; i++) {
         this._viewContainer.createEmbeddedView(this._templateRef);

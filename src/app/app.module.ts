@@ -1,3 +1,4 @@
+import { ToasterService } from 'angular2-toaster';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -24,6 +25,9 @@ import { RedlineDirective } from './redline.directive';
 import { HighlineDirective } from './highline.directive';
 import { ForAnyOrderDirective } from './for-any-order.directive';
 import { ErrorHandlingService } from './error-handling.service';
+import { ReadOnlyDataService } from './read-only-data.service';
+import { InsetComponent } from './inset/inset.component';
+import { BlahComponent } from './blah/blah.component';
 
 @NgModule({
   declarations: [
@@ -46,14 +50,16 @@ import { ErrorHandlingService } from './error-handling.service';
     RepeatNDirective,
     RedlineDirective,
     HighlineDirective,
-    ForAnyOrderDirective
+    ForAnyOrderDirective,
+    InsetComponent,
+    BlahComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [ErrorHandlingService],
+  providers: [ToasterService, ErrorHandlingService, ReadOnlyDataService, InsetComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

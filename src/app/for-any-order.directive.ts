@@ -36,6 +36,7 @@ export class ForAnyOrderDirective implements DoCheck {
     }
   }
 
+  // https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html#!#docheck
   ngDoCheck() {
     if (this.differ) {
       const changes = this.differ.diff(this.collection);
