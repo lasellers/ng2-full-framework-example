@@ -1,0 +1,15 @@
+app-inset,
+.app-inset {
+    background-color: purple;
+    margin: 0;
+    padding: 1em 3em;
+    display: block;
+    font-size: 1.8em;
+}app-blah,
+.app-blah {
+    background-color: red;
+    margin: 0;
+    padding: 1em 2em;
+    display: block;
+    font-size: .9em;
+}nav{padding:1em 2em;background-color:#eee}nav a{border-width:0 0 0 1px;border-color:#aaa;border-style:solid;padding:.2em;line-height:3em;height:3em}
