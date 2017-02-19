@@ -1,52 +1,58 @@
+import { NgModule, Component } from '@angular/core';
 import { ToasterService } from 'angular2-toaster';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { MemberTitleDirective } from './member-title.directive';
-import { MemberPhotoDirective } from './member-photo.directive';
-import { ConfirmModalDirective } from './confirm-modal.directive';
-import { RepeatNDirective } from './repeat-n.directive';
-import { RedlineDirective } from './redline.directive';
-import { HighlineDirective } from './highline.directive';
-import { ForAnyOrderDirective } from './for-any-order.directive';
+//import { environment } from '../environments/environment';
+import { environment } from '../environments/environment';
+import { APP_BASE_HREF } from '@angular/common';
 
-import { MemberTitlePipe } from './member-title.pipe';
-import { CamelCasePipe } from './camel-case.pipe';
-import { PascalCasePipe } from './pascal-case.pipe';
-import { StudlyCasePipe } from './studly-case.pipe';
-import { SnakeCasePipe } from './snake-case.pipe';
-import { KebabCasePipe } from './kebab-case.pipe';
+import { MemberTitleDirective } from './directives/member-title.directive';
+import { MemberPhotoDirective } from './directives/member-photo.directive';
+import { ConfirmModalDirective } from './directives/confirm-modal.directive';
+import { RepeatNDirective } from './directives/repeat-n.directive';
+import { RedlineDirective } from './directives/redline.directive';
+import { HighlineDirective } from './directives/highline.directive';
+import { ForAnyOrderDirective } from './directives/for-any-order.directive';
 
-import { ReadOnlyDataService } from './read-only-data.service';
-import { ErrorHandlingService } from './error-handling.service';
+import { MemberTitlePipe } from './pipes/member-title.pipe';
+import { CamelCasePipe } from './pipes/camel-case.pipe';
+import { PascalCasePipe } from './pipes/pascal-case.pipe';
+import { StudlyCasePipe } from './pipes/studly-case.pipe';
+import { SnakeCasePipe } from './pipes/snake-case.pipe';
+import { KebabCasePipe } from './pipes/kebab-case.pipe';
+
+import { ReadOnlyDataService } from './services/read-only-data.service';
+import { ErrorHandlingService } from './services/error-handling.service';
 
 import { RouterModule, Routes } from '@angular/router';
 //import { AppRoutingModule} from './app.routing-module';
 
 import { AppComponent } from './app.component';
-import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component';
-import { ContactComponent } from './contact/contact.component';
-import { MembersComponent } from './members/members.component';
-import { MemberComponent } from './member/member.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { InsetComponent } from './inset/inset.component';
-import { BlahComponent } from './blah/blah.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ComplexLayoutsComponent } from './complex-layouts/complex-layouts.component';
+import { AboutComponent } from './components/about/about.component';
+import { HomeComponent } from './components/home/home.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { MembersComponent } from './components/members/members.component';
+import { MemberComponent } from './components/member/member.component';
+import { InsetComponent } from './components/inset/inset.component';
+import { BlahComponent } from './components/blah/blah.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ComplexLayoutsComponent } from './components/complex-layouts/complex-layouts.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'member/:id', component: MemberComponent },
   { path: 'members', component: MembersComponent },
-  { path: 'member', component: MemberComponent },
-  { path: 'projects', component: ProjectsComponent },
   { path: 'inset', component: InsetComponent },
   { path: 'blah', component: BlahComponent },
-  { path: 'complex-layouts', component: ComplexLayoutsComponent },
+  {
+    path: 'complex-layouts',
+    component: ComplexLayoutsComponent,
+    data: { title: 'Complex Layouts' }
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -62,7 +68,6 @@ const appRoutes: Routes = [
     MemberTitlePipe,
     MemberTitleDirective,
     MemberPhotoDirective,
-    ProjectsComponent,
     CamelCasePipe,
     PascalCasePipe,
     StudlyCasePipe,
@@ -84,7 +89,12 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ToasterService, ErrorHandlingService, ReadOnlyDataService, InsetComponent],
+  providers: [ToasterService, ErrorHandlingService, ReadOnlyDataService, InsetComponent,
+    {
+      provide: APP_BASE_HREF,
+      useValue: environment.baseUrl
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

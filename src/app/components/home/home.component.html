@@ -1,7 +1,6 @@
-<h1>
-    {{title}}
-</h1>
-
+<h2>
+    title = {{title}}
+</h2>
 
 <h2>Pipes</h2>
 <ul>
@@ -45,33 +44,3 @@
         </ul>
     </li>
 </ul>
-
-
-
-
-<h3>Other</h3>
-<div>
-    Users count={{users.length}}
-</div>
-<div *ngIf="users.length>0">
-    Many users.
-</div>
-<pre>{{users |json }}</pre>
-<ul>
-    <li>ngfor
-        <ul>
-            <li *ngFor="let user of users">
-                {{user.name}} #{{user.id}}
-            </li>
-        </ul>
-    </li>
-    <li>forAnyOrder
-        <ul>
-            <li *forAnyOrder="let user of users">
-                {{user.name}} #{{user.id}}
-            </li>
-        </ul>
-    </li>
-</ul>
-
-<!--blah [count]="initialCount"blah-->

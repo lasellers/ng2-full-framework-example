@@ -1,11 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import './app/inset/inset.component.css';
-@import './app/blah/blah.component.css';
-@import './app/about/about.component.css';
-@import './app/contact/contact.component.css';
-@import './app/home/home.component.css';
-@import './app/member/member.component.css';
-@import './app/members/members.component.css';
-@import './app/projects/projects.component.css';
-@import './app/complex-layouts/complex-layouts.component.css';
+@import './app/components/inset/inset.component.css';
+@import './app/components/blah/blah.component.css';
+@import './app/components/about/about.component.css';
+@import './app/components/contact/contact.component.css';
+@import './app/components/home/home.component.css';
+@import './app/components/member/member.component.css';
+@import './app/components/members/members.component.css';
+@import './app/components/complex-layouts/complex-layouts.component.css';
+nav {
+    padding: 1em 2em;
+    background-color: #eee;
+}
+
+nav a {
+    border-width: 0 0 0 1px;
+    border-color: #aaa;
+    border-style: solid;
+    padding: .2em .2em;
+    line-height: 3em;
+    height: 3em;
+}
