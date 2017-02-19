@@ -1,9 +1,17 @@
 <h2>{{title}}</h2>
 <button (click)="myBlah()">Click Blah</button>
+
+<div>
+    <button (click)="decrement()">-</button>
+    <button (click)="increment()">+</button> {{count}} {{initialCount}}
+</div>
+
+<!--div [count]="initialCount"></div-->
 <form>
-    <div>
+    <div> {{name1}}
     </div>
     <div>
+        {{name2}}
     </div>
 </form>
 <p>

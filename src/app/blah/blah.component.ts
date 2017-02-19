@@ -12,6 +12,10 @@ export class BlahComponent implements OnInit {
   @Input() name1 = "John";
   @Input() name2 = "Wilbur";
 
+  count: number = 0;
+
+  initialCount: number = 3;
+
   constructor() { }
 
   ngOnInit() {
@@ -20,7 +24,14 @@ export class BlahComponent implements OnInit {
   myBlah() {
     console.log('button clicked');
     location.href = "blahxxx";
+  }
 
+  increment() {
+    this.count++;
+  }
+
+  decrement() {
+    this.count--;
   }
 
 }

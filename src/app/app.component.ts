@@ -1,4 +1,3 @@
-import { ErrorHandlingService } from './error-handling.service';
 import { Component, Input } from '@angular/core';
 import { OnInit, OnChanges, OnDestroy } from '@angular/core';
 import { AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked } from '@angular/core';
@@ -10,6 +9,8 @@ import 'rxjs/add/operator/map';
 import { ReadOnlyDataService } from './read-only-data.service';
 
 import { InsetComponent } from './inset/inset.component';
+//import { AppRoutingModule} from './app.routing-module';
+import { ErrorHandlingService } from './error-handling.service';
 
 console.clear();
 
@@ -22,6 +23,8 @@ export class AppComponent implements OnInit {
   title = 'NG2 Router and Structural Example.';
 
   users: Array<Object> = [];
+
+  initialCount: number = 2;
 
   constructor(
     private http: Http,
