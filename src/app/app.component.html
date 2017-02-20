@@ -27,7 +27,6 @@
                     <ul class="dropdown-menu">
                         <li *ngFor="let user of users"><a routerLink="/member/{{user.id}}" routerLinkActive="active">Member/{{user.id}} {{user.name}}</a></li>
 
-
                         <li role="separator" class="divider"></li>
                         <li class="dropdown-header">Nav header</li>
                         <li><a routerLink="/members" routerLinkActive="active">Members</a></li>
@@ -47,8 +46,7 @@
 </nav>
 
 <div>
-    environment={{environment | json}} {{users | json}}
-
+    environment={{environment | json}}
 </div>
 
 <router-outlet></router-outlet>
