@@ -1,4 +1,5 @@
-# git checkout gh-pages
+git checkout gh-pages
+git merge master
 ng build -prod --base-href="/ng2-full-framework-example/"
 git add dist -f
 git status
