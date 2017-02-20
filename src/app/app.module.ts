@@ -26,8 +26,7 @@ import { KebabCasePipe } from './pipes/kebab-case.pipe';
 import { ReadOnlyDataService } from './services/read-only-data.service';
 import { ErrorHandlingService } from './services/error-handling.service';
 
-import { RouterModule, Routes } from '@angular/router';
-//import { AppRoutingModule} from './app.routing-module';
+import { RouterModule, Routes  } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './components/about/about.component';
@@ -40,6 +39,9 @@ import { BlahComponent } from './components/blah/blah.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ComplexLayoutsComponent } from './components/complex-layouts/complex-layouts.component';
 
+import { AppRoutingModule } from './app.routing.module';
+
+/*
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
@@ -56,8 +58,15 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
-
+*/
 @NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    AppRoutingModule
+    // RouterModule.forRoot(appRoutes)
+  ],
   declarations: [
     AppComponent,
     AboutComponent,
@@ -83,18 +92,12 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     ComplexLayoutsComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    RouterModule.forRoot(appRoutes)
-  ],
-  providers: [ToasterService, ErrorHandlingService, ReadOnlyDataService, InsetComponent,
+  providers: [ToasterService, ErrorHandlingService, ReadOnlyDataService,
     {
       provide: APP_BASE_HREF,
       useValue: environment.baseUrl
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent ]
 })
 export class AppModule { }

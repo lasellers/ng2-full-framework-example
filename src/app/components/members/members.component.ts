@@ -28,20 +28,30 @@ export class MembersComponent implements OnInit {
   ngOnInit() {
     console.log('members.component OnInit');
 
-    // this.users =
-    let that = this;
+    //
+    /*let self = this;
     this.ro.getUsers(function (users) {
-      console.log("users=");
-      console.log(users);
+      self.users = users;
 
-      console.log("that.users=");
-      console.log(that.users);
-
-      that.users = users;
-
+      console.log("2 Members: self.users=");
+      console.log(self.users);
     });
-    console.log("this.users=");
-    console.log(this.users);
+    */
+
+    /*
+        this.ro.getUsers(users => {
+          this.users = users;
+          console.log('Members: this.users=');
+          console.log(this.users);
+        });
+    */
+
+    this.ro.getUsers((function (users) {
+      this.users = users;
+      console.log('Members: this.users=');
+      console.log(this.users);
+    }).bind(this));
+
   }
 
 }

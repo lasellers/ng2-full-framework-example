@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('app.component OnInit');
+    console.log('home.component OnInit');
   }
 
   visitAngularIo() {
@@ -26,27 +26,27 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnChanges() {
-    console.log('app.component ngOnChanges');
+    console.log('home.component ngOnChanges');
   }
 
   ngOnDestroy() {
-    console.log('app.component ngOnDestroy');
+    console.log('home.component ngOnDestroy');
   }
 
   ngAfterContentInit() {
-    console.log('app.component AfterContentInit');
+    console.log('home.component AfterContentInit');
   }
 
   ngAfterContentChecked() {
-    console.log('app.component AfterContentChecked');
+    console.log('home.component AfterContentChecked');
   }
 
   ngAfterViewInit() {
-    console.log('app.component AfterViewInit');
+    console.log('home.component AfterViewInit');
   }
 
   ngAfterViewChecked() {
-    console.log('app.component AfterViewChecked');
+    console.log('home.component AfterViewChecked');
   }
 
 }

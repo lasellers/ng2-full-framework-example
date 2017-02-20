@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -23,7 +24,7 @@ export class BlahComponent implements OnInit {
 
   myBlah() {
     console.log('button clicked');
-    location.href = "blahxxx";
+    location.href = environment.baseUrl + "blahxxx";
   }
 
   increment() {

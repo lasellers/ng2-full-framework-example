@@ -17,29 +17,27 @@ export class ReadOnlyDataService {
   ) { }
 
   getUsers(callback) {
-    console.log('ro getUsers');
-    const obj = this.http.get('./users.json')
-      .map((res: Response) => res.json())
-      .subscribe(
-      users => {
-        this.users = Array.from(users);
+    console.log('ReadOnlyDataService:getUsers');
 
-        console.log("getUsers this.user sets=");
-        console.log(this.users);
-        if (typeof callback === "function") { callback(this.users); }
-      },
-      error => {
-        this.errorhandling.handleError(error);
-      },
-      () => console.log('users.json finished')
-      );
+    if (this.users.length !== 0) {
+      if (typeof callback === 'function') { callback(this.users); }
+    } else {
+      const obs = this.http.get('./assets/users.json')
+        .map((res: Response) => res.json())
+        .subscribe(
+        users => {
+          this.users = Array.from(users);
 
-    console.log("getUsers this.users return=");
-    console.log(this.users);
-
-    return this.users;
-
-    // return obj;
+          console.log('ReadOnlyDataService:getUsers users=');
+          console.log(this.users);
+          if (typeof callback === 'function') { callback(this.users); }
+        },
+        error => {
+          this.errorhandling.handleError(error);
+        },
+        () => console.log('ReadOnlyDataService: users.json loaded')
+        );
+    }
   }
 
 }

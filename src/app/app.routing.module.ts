@@ -12,6 +12,8 @@ import { BlahComponent } from './components/blah/blah.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ComplexLayoutsComponent } from './components/complex-layouts/complex-layouts.component';
 
+//import { ModuleWithProviders } from '@angular/core';
+
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
@@ -32,10 +34,11 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forChild(appRoutes)
+    RouterModule.forRoot(appRoutes)
   ],
   exports: [
     RouterModule
   ]
 })
 export class AppRoutingModule { }
+//export const routAppRoutingModuleing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

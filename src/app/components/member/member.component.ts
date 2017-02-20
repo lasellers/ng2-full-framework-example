@@ -31,25 +31,24 @@ export class MemberComponent implements OnInit {
     this.id = route.snapshot.params['id'];
   }
 
+
   ngOnInit() {
     console.log('member.component OnInit');
 
-    // this.users =
-    let that = this;
-    this.ro.getUsers(function (users) {
+    this.ro.getUsers((function (users) {
 
       const user = users.find(
-        function (obj) {
-          return (obj.id.toString() === that.id);
-        }
+        (function (obj) {
+          return (obj.id.toString() === this.id);
+        }).bind(this)
       );
 
-      that.user = user;
-      that.title = user.name;
-      console.log("user=");
-      console.log(that.user);
+      this.user = user;
+      this.title = user.name;
 
-    });
+      console.log('Member: user=');
+      console.log(this.user);
+    }).bind(this));
 
   }
 

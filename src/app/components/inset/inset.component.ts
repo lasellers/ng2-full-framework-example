@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -16,7 +17,7 @@ export class InsetComponent implements OnInit {
 
   myInset() {
     console.log('button clicked');
-    location.href="insetxxx";
+    location.href = environment.baseUrl + "insetxxx";
   }
 
 }
