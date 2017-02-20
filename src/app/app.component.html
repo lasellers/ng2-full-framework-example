@@ -1,34 +1,54 @@
-<h1>
-    {{title}}
-</h1>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">{{title}}</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+
+                <li class="active"><a routerLink="/" routerLinkActive="active">/</a></li>
+                <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+                <li><a routerLink="/inset" routerLinkActive="active">Inset</a></li>
+                <li><a routerLink="/blah" routerLinkActive="active">Blah</a></li>
+                <li><a routerLink="/complex-layouts" routerLinkActive="active">Complex layouts</a></li>
+                <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+                <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+                <li><a routerLink="/404" routerLinkActive="active">404</a></li>
+                <li><a routerLink="/pageNotFound" routerLinkActive="active">pageNotFound</a></li>
+
+                <li class="dropdown">
+                    <a routerLink="/members" routerLinkActive="active" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Members <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li *ngFor="let user of users"><a routerLink="/member/{{user.id}}" routerLinkActive="active">Member/{{user.id}} {{user.name}}</a></li>
+
+
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Nav header</li>
+                        <li><a routerLink="/members" routerLinkActive="active">Members</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+            <!--ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
+                <li><a href="../navbar-static-top/">Static top</a></li>
+                <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+            </ul-->
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+</nav>
+
 <div>
-    environment={{environment | json}}
+    environment={{environment | json}} {{users | json}}
+
 </div>
-<nav>
-    <a routerLink="/" routerLinkActive="active">/</a>
-    <a routerLink="/home" routerLinkActive="active">Home</a>
-    <a routerLink="/inset" routerLinkActive="active">Inset</a>
-    <a routerLink="/blah" routerLinkActive="active">Blah</a>
-    <a routerLink="/complex-layouts" routerLinkActive="active">Complex layouts</a>
-    <a routerLink="/about" routerLinkActive="active">About</a>
-    <a routerLink="/contact" routerLinkActive="active">Contact</a>
-    <a routerLink="/members" routerLinkActive="active">Members</a>
-    <a routerLink="/member/1" routerLinkActive="active">Member/1</a>
-    <a routerLink="/404" routerLinkActive="active">404</a>
-    <a routerLink="/pageNotFound" routerLinkActive="active">pageNotFound</a>
-</nav>
-<!--
-    <nav>
-    <a routerLink="/home" routerLinkActive="active">Home</a>
-    <a routerLink="/about" routerLinkActive="active">About</a>
-    <a routerLink="/contact" routerLinkActive="active">Contact</a>
-    <a routerLink="/members" routerLinkActive="active">Members</a>
-    <a routerLink="/member" routerLinkActive="active">Member</a>
-    <a routerLink="/inset" routerLinkActive="active">Inset</a>
-    <a routerLink="/blah" routerLinkActive="active">Blah</a>
-    <a routerLink="/" routerLinkActive="active">/</a>
-    <a routerLink="/404" routerLinkActive="active">404</a>
-    <a routerLink="/pageNotFound" routerLinkActive="active">pageNotFound</a>
-</nav>
--->
+
 <router-outlet></router-outlet>

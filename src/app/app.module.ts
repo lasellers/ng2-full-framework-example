@@ -41,6 +41,9 @@ import { ComplexLayoutsComponent } from './components/complex-layouts/complex-la
 
 import { AppRoutingModule } from './app.routing.module';
 
+//import { MaterialModule } from '@angular/material';
+//import 'hammerjs';
+
 /*
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -64,7 +67,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    // MaterialModule
     // RouterModule.forRoot(appRoutes)
   ],
   declarations: [
